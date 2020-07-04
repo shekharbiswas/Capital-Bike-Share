@@ -17,7 +17,7 @@ def get_zip(place_name):
     except:
         return None
 
-def get_population(zip):
-    ## Get Zipcoe information
-    search = SearchEngine()
-    return search.by_zipcode(zip)
+def get_pop(zip):
+    search = SearchEngine(simple_zipcode=True)
+    zipcode = search.by_zipcode(zip)
+    return zipcode.to_dict()['population']
